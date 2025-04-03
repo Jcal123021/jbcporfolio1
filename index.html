@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Benedict Calvis - Portfolio</title>
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --accent: #64ffda;
+            --accent-secondary: #0a192f;
+            --section-padding: 80px 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            opacity: 0.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+            background-color: rgba(100, 255, 218, 0.1);
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background-color: var(--bg-primary);
+            background-image: linear-gradient(to right, rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.7)), url("/api/placeholder/1200/800");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero-content h2 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        section {
+            padding: var(--section-padding);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: var(--text-primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+        
+        .experience-item {
+            background-color: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .experience-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+        
+        .experience-company {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .experience-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .experience-list {
+            list-style-type: none;
+        }
+        
+        .experience-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+        
+        .experience-list li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .skills {
+            background-color: var(--bg-secondary);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background-color: var(--bg-primary);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .skill-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .skill-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .education-item {
+            background-color: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .education-degree {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .education-school {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .education-year {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .contact {
+            background-color: var(--bg-secondary);
+        }
+        
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-text {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .contact-link {
+            margin: 0 15px;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: var(--accent);
+        }
+        
+        footer {
+            background-color: var(--bg-primary);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Media Queries */
+        @media screen and (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">JBC</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Hello, I'm</h2>
+                <h1>John Benedict Calvis</h1>
+                <p>A dedicated professional with experience in virtual assistance, business development, and customer service. I specialize in sourcing, research, and data management to help businesses achieve their goals.</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a versatile professional with extensive experience spanning virtual assistance, business development, customer service, and more. My journey has equipped me with a diverse skill set that allows me to adapt to various roles and deliver exceptional results.</p>
+                    <p>Based in Dumanjug, Cebu, I combine my technical expertise in tools like Microsoft Office Suite, Google Workspace, and project management platforms with strong communication and problem-solving abilities to drive business success.</p>
+                    <p>My background in hospitality management gives me a unique perspective on delivering outstanding service and understanding client needs. Whether it's conducting research, analyzing data, or providing support, I'm committed to excellence in everything I do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Virtual Assistant – Sourcing Specialist</h3>
+                        <p class="experience-company">GOODIKA LIMITED</p>
+                    </div>
+                    <p class="experience-date">09/2022 - 12/2024</p>
+                </div>
+                <ul class="experience-list">
+                    <li>Analyzed customer feedback surveys to identify areas needing improvement in service delivery.</li>
+                    <li>Researched current trends in the industry and identified potential areas for improvement.</li>
+                    <li>Created spreadsheets in Microsoft Excel for record-keeping and reporting.</li>
+                    <li>Ran personal errands through online transactions, allowing clients to focus on more pressing duties.</li>
+                    <li>Provided product shipment logistical support and quality control by coordinating with vendors, resulting in increased revenue.</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Business Development Officer</h3>
+                        <p class="experience-company">ABSOLUTE SALES CORPORATION</p>
+                    </div>
+                    <p class="experience-date">08/2022 - 10/2023</p>
+                </div>
+                <ul class="experience-list">
+                    <li>Used excellent verbal skills to engage customers in conversation and effectively determine needs and requirements.</li>
+                    <li>Researched competition in order to remain competitive in the marketplace.</li>
+                    <li>Increased profitability and revenue by identifying customer needs and determining appropriate offerings.</li>
+                    <li>Developed customer outreach programs to maintain existing accounts.</li>
+                    <li>Identified customer needs by asking questions and advising on best solutions.</li>
+                    <li>Created presentations to communicate product features, benefits, and pricing models to prospective customers.</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Customer Service Representative</h3>
+                        <p class="experience-company">CONCENTRIX</p>
+                    </div>
+                    <p class="experience-date">03/2022 - 08/2022</p>
+                </div>
+                <ul class="experience-list">
+                    <li>Resolved complex problems by working with other departments to provide solutions that meet customer needs.</li>
+                    <li>Resolved customer complaints promptly and efficiently.</li>
+                    <li>Improved product knowledge on continuous basis to provide optimal service and achieve sales quotas.</li>
+                    <li>Enhanced productivity and customer service levels by anticipating needs and delivering outstanding support.</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Registration Kit Operator</h3>
+                        <p class="experience-company">PHILIPPINE STATISTICS OFFICE</p>
+                    </div>
+                    <p class="experience-date">11/2020 - 12/2021</p>
+                </div>
+                <ul class="experience-list">
+                    <li>Checked control panel and gauges during equipment operation.</li>
+                    <li>Sorted product components on work tables to maintain maximum organization and productivity.</li>
+                    <li>Set up tools, dies, jigs, fixtures, gauges and other related parts for use in production operations.</li>
+                    <li>Used daily system logs to document production information, discussing issues with management.</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Appliance Clerk</h3>
+                        <p class="experience-company">GUD MOTO TRADING INC.</p>
+                    </div>
+                    <p class="experience-date">12/2019 - 08/2020</p>
+                </div>
+                <ul class="experience-list">
+                    <li>Answered telephones, directed calls, and took messages.</li>
+                    <li>Typed, formatted and edited correspondence and other documents.</li>
+                    <li>Assisted customers with inquiries and complaints in a professional manner.</li>
+                    <li>Processed customer orders promptly and accurately.</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">All Around Staff</h3>
+                        <p class="experience-company">CRUZ – PHILIPS RESTAURANT AND PIZZERIA</p>
+                    </div>
+                    <p class="experience-date">05/2018 - 11/2019</p>
+                </div>
+                <ul class="experience-list">
+                    <li>Promoted desserts, appetizers, and specialty drinks to optimize sales.</li>
+                    <li>Prepared variety of foods according to exact instructions and recipe specifications.</li>
+                    <li>Collaborated with team to deliver timely service of items.</li>
+                    <li>Maintained knowledge of current menu items, garnishes, ingredients, and preparation methods.</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Part–time College Instructor</h3>
+                        <p class="experience-company">CEBU TECHNOLOGICAL UNIVERSITY</p>
+                    </div>
+                    <p class="experience-date">07/2017 - 04/2018</p>
+                </div>
+                <ul class="experience-list">
+                    <li>Delivered course lectures using modern technology to enhance student comprehension.</li>
+                    <li>Researched best practices in education theory and pedagogy.</li>
+                    <li>Improved classroom teaching methods by observing fellow educators and learning new techniques.</li>
+                    <li>Helped students make optimal educational and career choices to maximize learning and long-term vocational benefits.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Microsoft Office Logo -->
+                            <rect x="10" y="10" width="60" height="60" rx="4" fill="#F25022"/>
+                            <rect x="10" y="10" width="28" height="28" rx="2" fill="#F25022"/>
+                            <rect x="42" y="10" width="28" height="28" rx="2" fill="#7FBA00"/>
+                            <rect x="10" y="42" width="28" height="28" rx="2" fill="#00A4EF"/>
+                            <rect x="42" y="42" width="28" height="28" rx="2" fill="#FFB900"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-name">Microsoft Office Suite</h3>
+                    <p class="skill-description">Word, Excel, PowerPoint, Outlook</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Google Workspace Logo -->
+                            <circle cx="40" cy="40" r="30" fill="#FFFFFF"/>
+                            <path d="M40 20L55 30V50L40 60L25 50V30L40 20Z" fill="#EA4335"/>
+                            <path d="M40 20V30L55 40V30L40 20Z" fill="#4285F4"/>
+                            <path d="M40 30V40L55 50V40L40 30Z" fill="#34A853"/>
+                            <path d="M40 40V50L55 60V50L40 40Z" fill="#FBBC05"/>
+                            <path d="M40 20V30L25 40V30L40 20Z" fill="#4285F4"/>
+                            <path d="M40 30V40L25 50V40L40 30Z" fill="#34A853"/>
+                            <path d="M40 40V50L25 60V50L40 40Z" fill="#FBBC05"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-name">Google Workspace</h3>
+                    <p class="skill-description">Docs, Sheets, Slides, Drive, Gmail</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Asana Logo -->
+                            <circle cx="40" cy="40" r="25" fill="#F06A6A"/>
+                            <circle cx="28" cy="40" r="8" fill="#FFFFFF"/>
+                            <circle cx="52" cy="40" r="8" fill="#FFFFFF"/>
+                            <circle cx="40" cy="25" r="8" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-name">Asana</h3>
+                    <p class="skill-description">Project management & task tracking</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Trello Logo -->
+                            <rect x="15" y="15" width="50" height="50" rx="5" fill="#0079BF"/>
+                            <rect x="22" y="25" width="15" height="12" rx="3" fill="#FFFFFF"/>
+                            <rect x="22" y="43" width="15" height="12" rx="3" fill="#FFFFFF"/>
+                            <rect x="43" y="25" width="15" height="30" rx="3" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-name">Trello</h3>
+                    <p class="skill-description">Kanban-style project management</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <!-- ChatGPT Logo -->
+                            <circle cx="40" cy="40" r="30" fill="#10A37F"/>
+                            <path d="M25 40 C25 28 55 28 55 40 C55 52 25 52 25 40" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+                            <path d="M32 32 L40 28 L48 32" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+                            <path d="M32 48 L40 52 L48 48" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+                            <circle cx="40" cy="40" r="5" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-name">ChatGPT</h3>
+                    <p class="skill-description">AI-powered content generation & research</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Acuity Logo -->
+                            <rect x="15" y="15" width="50" height="50" rx="5" fill="#009DDC"/>
+                            <rect x="25" y="25" width="30" height="5" rx="2" fill="#FFFFFF"/>
+                            <rect x="25" y="35" width="20" height="5" rx="2" fill="#FFFFFF"/>
+                            <rect x="25" y="45" width="15" height="5" rx="2" fill="#FFFFFF"/>
+                            <rect x="25" y="55" width="10" height="5" rx="2" fill="#FFFFFF"/>
+                            <circle cx="55" cy="45" r="10" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+                            <path d="M55 40 L55 45 L58 48" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-name">Acuity</h3>
+                    <p class="skill-description">Scheduling & appointment management</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Canva Logo -->
+                            <rect x="15" y="15" width="50" height="50" rx="5" fill="#00C4CC"/>
+                            <path d="M40 25 C33 25 30 30 30 35 C30 40 33 45 40 45 C47 45 50 40 50 35 C50 30 47 25 40 25" fill="#7D2AE7"/>
+                            <path d="M33 50 L37 42 L41 50 L33 50" fill="#FFFFFF"/>
+                            <path d="M45 50 L49 42 L53 50 L45 50" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-name">Canva</h3>
+                    <p class="skill-description">Graphic design & visual content creation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-item">
+                <h3 class="education-degree">Bachelor of Science, Hospitality Management</h3>
+                <p class="education-school">University of San Jose-Recoletos, Cebu City</p>
+                <p class="education-year">10/2014</p>
+            </div>
+            
+            <div class="education-item">
+                <h3 class="education-degree">Secondary Education</h3>
+                <p class="education-school">Little Flower School, Poblacion, Dumanjug</p>
+                <p class="education-year">03/2010</p>
+            </div>
+            
+            <div class="education-item">
+                <h3 class="education-degree">Elementary Education</h3>
+                <p class="education-school">Dumanjug Central School, Liong, Dumanjug</p>
+                <p class="education-year">03/2006</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-content">
+                <p class="contact-text">I'm always open to discussing new opportunities, projects, or just having a chat.</p>
+                <p><strong>Email:</strong> johnbc123021@gmail.com</p>
+                <p><strong>Phone:</strong> (+63) 9062773197</p>
+                <p><strong>Location:</strong> Dumanjug, Cebu, Philippines</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2025 John Benedict Calvis. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
